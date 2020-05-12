@@ -12,7 +12,8 @@ select yn in "Yes" "No"; do
 
   case $yn in
 
-    Yes ) git push;;
+    Yes ) git push
+          exit;;
 
     No ) exit;;
 

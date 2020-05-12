@@ -45,7 +45,7 @@ elif [[ $lang == "swe" ]]; then
 
       Ja )
         git push &> /dev/null
-        echo "Pushat!
+        echo "Pushat!"
         exit
         ;;
 

@@ -11,7 +11,7 @@ select language in "English" "Swedish"; do
       exit
       ;;
     Swedish )
-      echo 'lang=eng' > /home/$SUDO_USER/.config/gitit.conf
+      echo 'lang=swe' > /home/$SUDO_USER/.config/gitit.conf
       exit
       ;;
   esac

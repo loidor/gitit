@@ -8,7 +8,7 @@ git commit -m "${commit: 3}"
 
 echo "Do you want to push it?"
 
-select yn in "Yes" "No"
+select yn in "Yes" "No"; do
 
 case $yn in
 

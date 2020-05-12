@@ -1,0 +1,5 @@
+#!/bin/bash
+
+commit=$(curl https://besvik.se | grep \ \<span)
+
+echo "${commit: 10:-7}"

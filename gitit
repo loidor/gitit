@@ -1,22 +1,56 @@
 #!/bin/bash
 
-commit=$(curl -s whatthecommit.com | grep \<p\>)
+cat $HOME/.config/gitit.conf
+source $HOME/.config/gitit.conf
+
+
+
+if [[ $lang == "eng" ]]; then
+  echo "eng"
+  commit=$(curl -s whatthecommit.com | grep \<p\>)
+  commit=${commit: 3}
+elif [[ $lang == "swe" ]]; then
+  echo "swe"
+  commit=$(curl https://besvik.se | grep \ \<span)
+  commit=${commit: 10:-7}
+fi
 
 git add *
 
-git commit -m "${commit: 3}"
+git commit -m "$commit"
 
-echo "Do you want to push it?"
+if [[ $lang == "eng" ]]; then
+  echo "Do you want to push it?"
+  select yn in "Yes" "No"; do
 
-select yn in "Yes" "No"; do
+    case $yn in
 
-  case $yn in
+      Yes )
+        git push
+        exit
+        ;;
 
-    Yes ) git push
-          exit;;
+      No )
+        exit
+        ;;
 
-    No ) exit;;
+    esac
+  done
+elif [[ $lang == "swe" ]]; then
+  echo "Vill du pusha?"
+  select yn in "Ja" "Nej"; do
 
-  esac
+    case $yn in
 
-done
+      Ja )
+        git push
+        exit
+        ;;
+
+      Nej )
+        exit
+        ;;
+
+    esac
+  done
+fi

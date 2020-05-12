@@ -6,7 +6,7 @@ if [[ $lang == "eng" ]]; then
   commit=$(curl -s whatthecommit.com | grep \<p\>)
   commit=${commit: 3}
 elif [[ $lang == "swe" ]]; then
-  commit=$(curl https://besvik.se | grep \ \<span)
+  commit=$(curl -s https://besvik.se | grep \ \<span)
   commit=${commit: 10:-7}
 fi
 

@@ -10,18 +10,22 @@ elif [[ $lang == "swe" ]]; then
   commit=${commit: 10:-7}
 fi
 
-git add *
+git add * &> /dev/null
 
-git commit -m "$commit"
+git commit -m "$commit" &> /dev/null
 
 if [[ $lang == "eng" ]]; then
+
+  echo "Commit message: $commit"
+  echo
   echo "Do you want to push it?"
   select yn in "Yes" "No"; do
 
     case $yn in
 
       Yes )
-        git push
+        git push &> /dev/null
+        echo "Pushed!"
         exit
         ;;
 
@@ -32,13 +36,16 @@ if [[ $lang == "eng" ]]; then
     esac
   done
 elif [[ $lang == "swe" ]]; then
+  echo "Commitmeddelande: $commit"
+  echo
   echo "Vill du pusha?"
   select yn in "Ja" "Nej"; do
 
     case $yn in
 
       Ja )
-        git push
+        git push &> /dev/null
+        echo "Pushat!
         exit
         ;;
 

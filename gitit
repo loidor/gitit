@@ -1,16 +1,11 @@
 #!/bin/bash
 
-cat $HOME/.config/gitit.conf
 source $HOME/.config/gitit.conf
 
-
-
 if [[ $lang == "eng" ]]; then
-  echo "eng"
   commit=$(curl -s whatthecommit.com | grep \<p\>)
   commit=${commit: 3}
 elif [[ $lang == "swe" ]]; then
-  echo "swe"
   commit=$(curl https://besvik.se | grep \ \<span)
   commit=${commit: 10:-7}
 fi

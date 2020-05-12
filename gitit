@@ -10,9 +10,12 @@ echo "Do you want to push it?"
 
 select yn in "Yes" "No"; do
 
-case $yn in
+  case $yn in
 
     Yes ) git push;;
 
     No ) exit;;
-esac
+
+  esac
+
+done

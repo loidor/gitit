@@ -3,10 +3,16 @@
 commit=$(curl -s whatthecommit.com | grep \<p\>)
 
 git add *
+
 git commit -m "${commit: 3}"
+
 echo "Do you want to push it?"
+
 select yn in "Yes" "No"
+
 case $yn in
+
     Yes ) git push;;
+
     No ) exit;;
 esac
